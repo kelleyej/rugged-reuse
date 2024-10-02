@@ -26,6 +26,7 @@ export default function Header() {
     return (
 
         <header>
+            <h1>Rugged Reuse</h1>
             <audio loop
                 ref={myRef}
                 src={sound}
