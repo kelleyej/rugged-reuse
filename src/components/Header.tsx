@@ -24,22 +24,29 @@ export default function Header() {
     };
 
     return (
+        <section class='main-container'>
+            <section class={checked ? 'dayCamping' : 'nightCamping'}>
+                <h1>Rugged Reuse</h1>
+                <audio loop
+                    ref={myRef}
+                    src={sound}
+                />
+                {audioChecked ? (
+                    <button onClick={pauseAudio}>pause</button>
+                ) : (
+                    <button onClick={startAudio}>start</button>
+                )}
 
-        <section class={checked ? 'dayCamping' : 'nightCamping'}>
-            <h1>Rugged Reuse</h1>
-            <audio loop
-                ref={myRef}
-                src={sound}
-            />
-            {audioChecked ? (
-                <button onClick={pauseAudio}>pause</button>
-            ) : (
-                <button onClick={startAudio}>start</button>
-            )}
+                <input type='checkbox' checked={checked} onClick={handleClick} />
 
-            <input type='checkbox' checked={checked} onClick={handleClick} />
-
+            </section>
+            <form>
+                <input type='text' />
+                <input type='text' />
+                <button type='submit'>Login</button>
+            </form>
         </section>
+
 
     )
 }
