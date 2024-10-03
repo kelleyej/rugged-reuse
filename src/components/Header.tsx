@@ -24,8 +24,8 @@ export default function Header() {
 
     return (
         <section class='main-container'>
-            <section class={checked ? 'dayCamping' : 'nightCamping'}>
-                <h1>Rugged Reuse</h1>
+            <section class={checked ? 'nightCamping' : 'dayCamping'}>
+                <h1 class="animated animatedFadeInUp fadeInUp">Rugged Reuse</h1>
                 <audio loop
                     ref={myRef}
                     src={sound}
