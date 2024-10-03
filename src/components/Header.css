@@ -42,10 +42,51 @@ form {
 }
 
 h1 {
-
+    font-size: 7em;
     font-family: "Karla", sans-serif;
     font-optical-sizing: auto;
     font-weight: 700;
     font-style: normal;
+    margin-top: 5px;
 
+}
+
+.toggle {
+    border-radius: 10px;
+    width: 52px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    background-color: #faf0e6;
+}
+
+.circle {
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+}
+
+.nightCircle {
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+}
+
+.time {
+    position: absolute;
+    right: 0;
+    padding-right: 6px;
+
+}
+
+.nightTime {
+    position: absolute;
+    left: 0;
+    padding-left: 6px;
 }

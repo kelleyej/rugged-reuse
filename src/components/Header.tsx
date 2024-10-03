@@ -36,9 +36,7 @@ export default function Header() {
                 ) : (
                     <button onClick={startAudio}>start</button>
                 )}
-
-                <input type='checkbox' checked={checked} onClick={handleClick} />
-
+                <button onClick={handleClick} class='toggle'><div class={checked ? 'circle' : 'nightCircle'}>{checked ? '🌕' : '☀️'}</div><div class={checked ? 'time' : 'nightTime'}>{checked ? 'PM' : 'AM'}</div></button>
             </section>
             <form>
                 <input type='text' />
