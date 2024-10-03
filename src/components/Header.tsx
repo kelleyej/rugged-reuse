@@ -25,7 +25,7 @@ export default function Header() {
 
     return (
 
-        <header>
+        <section class={checked ? 'dayCamping' : 'nightCamping'}>
             <h1>Rugged Reuse</h1>
             <audio loop
                 ref={myRef}
@@ -36,13 +36,10 @@ export default function Header() {
             ) : (
                 <button onClick={startAudio}>start</button>
             )}
-            <img class='camping-image' src={checked ? dayCamping : nightCamping} />
 
-            <div class={checked ? 'fire' : 'nightFire'}>
-                <img class='camping-fire' src='https://media.baamboozle.com/uploads/images/1197896/1677692362_34951_gif-url.gif' />
-            </div>
             <input type='checkbox' checked={checked} onClick={handleClick} />
 
-        </header>
+        </section>
+
     )
 }

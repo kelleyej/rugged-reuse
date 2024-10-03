@@ -1,34 +1,32 @@
-.fire {
-    position: absolute;
-    z-index: 1;
-    top: 40%;
-    left: 46%;
-}
+.dayCamping {
 
-.nightFire {
-    position: absolute;
-    z-index: 1;
-    top: 58%;
-    left: 36%;
-}
-
-header {
-    background-color: blue;
-    position: relative;
-    z-index: 0;
-    width: 100vw;
-    height: 400px;
+    width: 65vw;
+    height: 98vh;
     display: flex;
-    justify-content: center;
+    background-image: url('../assets/day-camp.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 1%;
+    border-radius: 20px;
 }
 
-.camping-image {
-    height: 100%;
-}
 
-.camping-fire {
-    height: 150px;
+.nightCamping {
 
+    width: 65vw;
+    height: 98vh;
+    display: flex;
+    background-image: url('../assets/night-camp.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 1%;
+    border-radius: 20px;
 }
 
 h1 {
