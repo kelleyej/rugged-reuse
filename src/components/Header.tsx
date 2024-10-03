@@ -1,5 +1,4 @@
-import dayCamping from '../assets/day-camping.jpeg';
-import nightCamping from '../assets/night-camping.jpeg';
+
 import './Header.css';
 import { useState, useRef } from 'react'
 import sound from '../assets/campfire.mp3'
