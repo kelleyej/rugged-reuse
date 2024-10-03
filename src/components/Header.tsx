@@ -38,7 +38,9 @@ export default function Header() {
                 <button onClick={handleClick} class='toggle'><div class={checked ? 'circle' : 'nightCircle'}>{checked ? '🌕' : '☀️'}</div><div class={checked ? 'time' : 'nightTime'}>{checked ? 'PM' : 'AM'}</div></button>
             </section>
             <form>
+                <label>Email</label>
                 <input type='text' />
+                <label>Password</label>
                 <input type='text' />
                 <button type='submit'>Login</button>
             </form>
