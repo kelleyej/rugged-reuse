@@ -11,6 +11,7 @@ import sleepingBag from '../assets/sleeping-bag.jpeg'
 import Chair from '../assets/chair.jpeg'
 import Compass from '../assets/compass.jpeg'
 import Weather from '../assets/weather.jpeg'
+import Cards from '../assets/cards.jpeg'
 
 const Label = styled(Paper)(({ theme }) => ({
     backgroundColor: '#fff',
@@ -28,30 +29,49 @@ const Label = styled(Paper)(({ theme }) => ({
 export default function Gear() {
 
     return (
+        <div class='main-gear'>
+            <h1 class='gear-title'>Rugged Reuse</h1>
+            <section class='gear-page'>
 
-        <Box sx={{ width: 500, height: 500, marginLeft: 5 }}>
+                <Box sx={{ width: '65%', height: 500, marginLeft: 5 }}>
 
 
-            <Masonry columns={3} spacing={2}>
-                {itemData.map((item, index) => (
-                    <div key={index}>
-                        <Label>{item.title}</Label>
-                        <img class='cards'
-                            srcSet={`${item.img}?w=162&auto=format&dpr=2 2x`}
-                            src={`${item.img}?w=162&auto=format`}
-                            alt={item.title}
-                            loading="lazy"
-                            style={{
-                                borderBottomLeftRadius: 0,
-                                borderBottomRightRadius: 0,
-                                display: 'block',
-                                width: '100%',
-                            }}
-                        />
-                    </div>
-                ))}
-            </Masonry>
-        </Box>
+                    <Masonry columns={3} spacing={2}>
+                        {itemData.map((item, index) => (
+                            <div key={index}>
+                                <Label>{item.title}</Label>
+                                <img class='cards'
+                                    srcSet={`${item.img}?w=162&auto=format&dpr=2 2x`}
+                                    src={`${item.img}?w=162&auto=format`}
+                                    alt={item.title}
+                                    loading="lazy"
+                                    style={{
+                                        borderBottomLeftRadius: 0,
+                                        borderBottomRightRadius: 0,
+                                        display: 'block',
+                                        width: '100%',
+                                    }}
+                                />
+                            </div>
+                        ))}
+                    </Masonry>
+                </Box>
+                <section class='add-item'>
+                    <h2>Add Item to Sell</h2>
+                    <form>
+                        <input type='file' />
+                        <select>
+                            <option value=''>Choose a Category</option>
+                            <option value='tents'>Tents</option>
+                            <option value='sleeping-bags'>Sleeping Bags</option>
+                            <option value='entertainment'>Entertainment</option>
+                        </select>
+                    </form>
+                </section>
+            </section>
+        </div>
+
+
 
     );
 }
@@ -88,5 +108,9 @@ const itemData = [
     {
         img: Weather,
         title: 'Weather'
+    },
+    {
+        img: Cards,
+        title: 'Entertainment'
     }
 ]
