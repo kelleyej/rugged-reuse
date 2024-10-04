@@ -13,6 +13,7 @@ import Compass from '../assets/compass.jpeg'
 import Weather from '../assets/weather.jpeg'
 import Cards from '../assets/cards.jpeg'
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
 
 const Label = styled(Paper)(({ theme }) => ({
     backgroundColor: '#fff',
@@ -28,17 +29,14 @@ const Label = styled(Paper)(({ theme }) => ({
 }));
 
 export default function Gear() {
+    const navigate = useNavigate()
 
     const [description, setDescription] = useState('')
     const [title, setTitle] = useState('')
     const [category, setCategory] = useState('')
     const [image, setImage] = useState(null)
 
-    useEffect(() => {
-        fetch('http://127.0.0.1:8000/gear/')
-            .then(response => response.json())
-            .then(data => console.log(data))
-    }, [])
+
 
     function handleSubmit(event) {
         let formData = new FormData()
@@ -65,7 +63,7 @@ export default function Gear() {
                         {itemData.map((item, index) => (
                             <div key={index}>
                                 <Label>{item.title}</Label>
-                                <img className='cards'
+                                <img onClick={() => navigate(`/gear/${item.category}`)} className='cards'
                                     srcSet={`${item.img}?w=162&auto=format&dpr=2 2x`}
                                     src={`${item.img}?w=162&auto=format`}
                                     alt={item.title}
@@ -111,11 +109,13 @@ export default function Gear() {
 const itemData = [
     {
         img: Tent,
-        title: 'Tent'
+        title: 'Tent',
+        category: 'tents'
     },
     {
         img: Backpack,
-        title: 'Backpack'
+        title: 'Backpack',
+        category: 'backpacks'
     },
     {
         img: Lantern,
@@ -143,6 +143,7 @@ const itemData = [
     },
     {
         img: Cards,
-        title: 'Entertainment'
+        title: 'Entertainment',
+        category: 'entertainment'
     }
 ]

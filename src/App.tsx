@@ -3,8 +3,9 @@ import './App.css'
 import Header from './components/Header.tsx'
 import Gear from './components/Gear.tsx'
 import Error from './components/Error.tsx'
+import Category from './components/Category.tsx'
 
-function App() {
+export default function App() {
 
 
   return (
@@ -12,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Header />} />
         <Route path='/gear' element={<Gear />} />
-
+        <Route path='/gear/:category' element={<Category />} />
         <Route path='*' element={<Error />} />
       </Routes>
     </BrowserRouter>
@@ -20,4 +21,4 @@ function App() {
   )
 }
 
-export default App
+
