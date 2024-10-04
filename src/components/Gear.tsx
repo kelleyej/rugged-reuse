@@ -59,7 +59,8 @@ export default function Gear() {
                 <section class='add-item'>
                     <h2>Add Item to Sell</h2>
                     <form>
-                        <input type='file' />
+                        <label for='add-image' class='custom-add'>Add a Photo</label>
+                        <input id='add-image' type='file' />
                         <select>
                             <option value=''>Choose a Category</option>
                             <option value='tents'>Tents</option>
