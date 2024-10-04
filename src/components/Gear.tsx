@@ -28,17 +28,35 @@ const Label = styled(Paper)(({ theme }) => ({
 }));
 
 export default function Gear() {
+
     const [description, setDescription] = useState('')
+    const [title, setTitle] = useState('')
+    const [category, setCategory] = useState('')
+    const [image, setImage] = useState(null)
+
     useEffect(() => {
         fetch('http://127.0.0.1:8000/gear/')
             .then(response => response.json())
             .then(data => console.log(data))
     }, [])
 
+    function handleSubmit(event) {
+        let formData = new FormData()
+        formData.append('title', title);
+        formData.append('description', description);
+        formData.append('image', image);
+        formData.append('category', category)
+        event.preventDefault()
+        fetch('http://127.0.0.1:8000/gear/', {
+            method: 'POST',
+            body: formData
+        })
+    }
+
     return (
-        <div class='main-gear'>
-            <h1 class='gear-title'>Rugged Reuse</h1>
-            <section class='gear-page'>
+        <div className='main-gear'>
+            <h1 className='gear-title'>Rugged Reuse</h1>
+            <section className='gear-page'>
 
                 <Box sx={{ width: '65%', height: 500, marginLeft: 5 }}>
 
@@ -47,7 +65,7 @@ export default function Gear() {
                         {itemData.map((item, index) => (
                             <div key={index}>
                                 <Label>{item.title}</Label>
-                                <img class='cards'
+                                <img className='cards'
                                     srcSet={`${item.img}?w=162&auto=format&dpr=2 2x`}
                                     src={`${item.img}?w=162&auto=format`}
                                     alt={item.title}
@@ -63,22 +81,23 @@ export default function Gear() {
                         ))}
                     </Masonry>
                 </Box>
-                <section class='add-item'>
+                <section className='add-item'>
                     <h2>Add Item to Sell</h2>
-                    <form>
-                        <label for='title'>Title</label>
-                        <input id='title' type='text' />
-                        <label for='add-image' class='custom-add'>Add a Photo</label>
-                        <input id='add-image' type='file' />
-                        <label for='descriptionText'>Description</label>
+                    <form onSubmit={(event) => handleSubmit(event)}>
+                        <label htmlFor='title'>Title</label>
+                        <input id='title' type='text' onChange={(event) => setTitle(event.target.value)} value={title} />
+                        <label htmlFor='add-image' className='custom-add'>Add a Photo</label>
+                        <input id='add-image' type='file' onChange={(event) => setImage(event.target.files[0])} />
+                        <label htmlFor='descriptionText'>Description</label>
                         <textarea id='descriptionText' onChange={(event) => setDescription(event.target.value)} value={description} />
                         <p>You have {500 - description.length} characters left.</p>
-                        <select>
+                        <select onChange={(event) => setCategory(event.target.value)}>
                             <option value=''>Choose a Category</option>
                             <option value='tents'>Tents</option>
                             <option value='sleeping-bags'>Sleeping Bags</option>
                             <option value='entertainment'>Entertainment</option>
                         </select>
+                        <button type='submit'>Submit</button>
                     </form>
                 </section>
             </section>
